@@ -10,6 +10,8 @@ const Pet = require("./resources/pets/model");
 
 const app = express();
 
+const booksRouter = require("./resources/books/router");
+
 /* SETUP MIDDLEWARE */
 
 app.use(morgan("dev"));
@@ -19,8 +21,10 @@ app.use(bodyParser.json());
 
 /* CATCH-ALL TO TEST ROUTES */
 
+app.use("/books", booksRouter);
+
 app.get("*", (req, res) => {
-  res.json({ ok: true });
+  res.json({ msg: "GOOD BOY YOU GOT BACKEND LOGIC SERVER WORKING" });
 });
 
 /* START SERVER */
