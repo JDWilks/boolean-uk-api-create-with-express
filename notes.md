@@ -26,3 +26,5 @@ Challenge 2
 - Have a look inside utils/mockData.js and see if you can generate some mock data and build your own resource and model ie. a bank account resource or a vehicle tax resource. Take a look at faker.js for inspiration.
 
 > > > > >
+
+I now hate backend
