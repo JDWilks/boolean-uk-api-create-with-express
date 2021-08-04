@@ -11,6 +11,7 @@ const Pet = require("./resources/pets/model");
 const app = express();
 
 const booksRouter = require("./resources/books/router");
+const petsRouter = require("./resources/pets/router");
 
 /* SETUP MIDDLEWARE */
 
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 /* CATCH-ALL TO TEST ROUTES */
 
 app.use("/books", booksRouter);
+app.use("/pets", petsRouter);
 
 app.get("*", (req, res) => {
   res.json({ msg: "GOOD BOY YOU GOT BACKEND LOGIC SERVER WORKING" });
