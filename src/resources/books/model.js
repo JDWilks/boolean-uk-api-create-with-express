@@ -1,10 +1,11 @@
+const { query } = require("express");
 const db = require("../../utils/database");
 const { buildBooksDatabase } = require("../../utils/mockData");
 
 function Book() {
   function createTable() {
     const sql = `
-      DROP TABLE books;
+   
       
       CREATE TABLE IF NOT EXISTS books (
         id              SERIAL        PRIMARY KEY,
@@ -36,8 +37,18 @@ function Book() {
     });
   }
 
+  function findAllBooks(callbackFunction) {
+    const sql = `
+    SELECT * FROM books
+    `;
+    db.query(sql).then((result) => {
+      callbackFunction(result.rows);
+    });
+  }
+
   createTable();
   mockData();
+  return { findAllBooks };
 }
 
 module.exports = Book;
